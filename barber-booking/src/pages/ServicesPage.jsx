@@ -1,5 +1,6 @@
 import React from "react";
-import ServiceCard from "./ServiceCard";
+import ServiceCard from '../components/ServiceCard';
+
 
 const services = [
   { name: "Haircut", price: 20 },

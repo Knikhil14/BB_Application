@@ -1,17 +1,13 @@
-import React from "react";
-import { Menu } from "lucide-react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NavBar = ({ setCurrentPage }) => {
+const NavBar = () => {
   return (
-    <nav className="bg-black text-white p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">Barber Booking</h1>
-
-      <button
-        className="px-4 py-1 bg-gray-700 rounded-md"
-        onClick={() => setCurrentPage("home")}
-      >
-        Home
-      </button>
+    <nav>
+      <Link to="/">Home</Link> | 
+      <Link to="/booking">Book</Link> | 
+      <Link to="/barbers">Barbers</Link> |
+      <Link to="/services">Services</Link>
     </nav>
   );
 };

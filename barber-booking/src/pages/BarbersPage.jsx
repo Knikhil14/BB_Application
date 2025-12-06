@@ -1,5 +1,6 @@
 import React from "react";
-import BarberCard from "./BarberCard";
+import BarberCard from '../components/BarberCard';
+
 
 const barbers = [
   { name: "John", experience: "5 yrs" },

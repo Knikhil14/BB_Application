@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: blue;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+//booking title
+.booking-title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 24px; /* optional: makes it larger */
+}
+
+.booking-container {
+  display: flex;
+  flex-direction: column;  /* stack elements vertically */
+  justify-content: center; /* vertical centering */
+  align-items: center;     /* horizontal centering */
+  height: 80vh;            /* take most of the viewport height */
+  text-align: center;
+}
+
+.booking-container h2 {
+  font-weight: bold;
+  font-size: 32px; /* adjust size as needed */
+}
