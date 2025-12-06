@@ -1,0 +1,85 @@
+# AWS Serverless Architecture for Barber Booking System
+
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         USERS / CLIENTS                          │
+│                     (Web Browser / Mobile)                       │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     Amazon Route 53                              │
+│                   (DNS Management)                               │
+│              barberbooking.com → CloudFront                      │
+└────────────────────────────┬────────────────────────────────────┘
+                             │
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  Amazon CloudFront (CDN)                         │
+│              - Global content delivery                           │
+│              - HTTPS/SSL certificate                             │
+│              - Cache static assets                               │
+└─────────┬──────────────────────────────────┬────────────────────┘
+          │                                   │
+          ▼                                   ▼
+┌──────────────────────┐         ┌───────────────────────────────┐
+│   Amazon S3 Bucket   │         │      API Gateway              │
+│   (Static Website)   │         │   (REST API Endpoints)        │
+│   - React Frontend   │         │   /bookings                   │
+│   - HTML/CSS/JS      │         │   /services                   │
+│   - Images           │         │   /barbers                    │
+└──────────────────────┘         │   /availability               │
+                                 └──────────┬────────────────────┘
+                                            │
+                                            ▼
+                        ┌────────────────────────────────────────┐
+                        │       AWS Lambda Functions             │
+                        │  (Serverless Backend Logic)            │
+                        ├────────────────────────────────────────┤
+                        │  • createBooking()                     │
+                        │  • getAvailability()                   │
+                        │  • updateBooking()                     │
+                        │  • cancelBooking()                     │
+                        │  • getServices()                       │
+                        │  • getBarbers()                        │
+                        │  • authenticateUser()                  │
+                        └──┬──────┬──────┬──────┬────────────────┘
+                           │      │      │      │
+         ┌─────────────────┘      │      │      └───────────────┐
+         │                        │      │                       │
+         ▼                        ▼      ▼                       ▼
+┌─────────────────┐      ┌────────────────────┐      ┌──────────────────┐
+│   DynamoDB      │      │  Amazon Cognito    │      │   Amazon SES     │
+│   (Database)    │      │  (Authentication)  │      │  (Email Service) │
+├─────────────────┤      ├────────────────────┤      ├──────────────────┤
+│ Tables:         │      │ • User pools       │      │ • Confirmations  │
+│ • Bookings      │      │ • Customer login   │      │ • Reminders      │
+│ • Services      │      │ • Barber login     │      │ • Cancellations  │
+│ • Barbers       │      │ • Admin login      │      └──────────────────┘
+│ • Customers     │      │ • JWT tokens       │
+│ • Availability  │      └────────────────────┘
+└─────────────────┘               
+         │                        
+         └──────────────────┐     
+                            ▼     
+                   ┌─────────────────────┐
+                   │   Amazon SNS        │
+                   │  (SMS Notifications)│
+                   ├─────────────────────┤
+                   │ • Booking confirmed │
+                   │ • Reminder (1hr)    │
+                   │ • Cancellations     │
+                   └─────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                      MONITORING & SECURITY                       │
+├─────────────────────────────────────────────────────────────────┤
+│  • Amazon CloudWatch - Logs, Metrics, Alarms                    │
+│  • AWS WAF - Web Application Firewall                           │
+│  • AWS IAM - Identity & Access Management                       │
+│  • AWS Secrets Manager - API keys, DB credentials              │
+└─────────────────────────────────────────────────────────────────┘
+```
+
