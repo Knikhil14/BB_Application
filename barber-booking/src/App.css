@@ -1,86 +1,82 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;   /* ❗ prevents scrolling */
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.content h1 {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.9);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.content p {
+  color: #f1f1f1;
+  font-size: 18px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
 }
 
 
-.booking-container h2 {
-  font-weight: bold;
-  font-size: 32px; /* adjust size as needed */
-}
-
+/* Background Container */
 .app-bg {
   background-image: url('/barber-bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* keeps background static */
-  
+  background-attachment: fixed;
+
   height: 100vh;
   width: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
+/* Center Page Content */
 .content {
-  padding-top: 20px; /* space for navbar */
-  min-height: 100vh;
-  backdrop-filter: blur(2px);
-}
-
-content {
+  position: relative;
+  z-index: 1; /* keeps text ABOVE blur */
+  
   display: flex;
   flex-direction: column;
-  justify-content: center;     /* vertical center */
-  align-items: center;          /* horizontal center */
-  height: calc(100vh - 60px);   /* subtract navbar height */
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+  height: calc(100vh - 60px);
+  width: 100%;
+
   padding: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);  /* transparent dark box */
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);  /* outer glow */
+}
+
+/* Background Wrapper */
+.app-bg {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  background-image: url('/barber-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Blur Overlay Layer */
+.app-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  backdrop-filter: blur(6px);   /* ❗ blur applied here */
+  background: rgba(0, 0, 0, 0.35); /* ❗ subtle dark tint */
+  z-index: 0;
 }
