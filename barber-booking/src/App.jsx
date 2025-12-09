@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import BarbersPage from "./pages/BarbersPage";
-import DateTimePage from "./pages/DateTimePage";
+import DateTimePage from "./pages/DateTimePage.jsx";
 import CustomerForm from "./pages/CustomerForm";
 import ConfirmationPage from "./pages/ConfirmationPage";
 
