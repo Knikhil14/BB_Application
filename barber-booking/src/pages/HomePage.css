@@ -1,0 +1,25 @@
+.home-container {
+  text-align: center;
+  margin-top: 150px;
+  color: white;
+}
+
+.home-container h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.btn-main {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #ffcc00;
+  color: black;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.btn-main:hover {
+  background: #e6b800;
+}
