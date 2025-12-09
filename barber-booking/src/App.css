@@ -42,17 +42,20 @@ html, body {
   
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center;    /* center vertically */
+  align-items: center;        /* center horizontally */
 
   height: calc(100vh - 60px);
   width: 100%;
 
-  padding: 0;
+  padding: 20px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.4);  /* transparent dark box */
+  background: rgba(0, 0, 0, 0.45);  /* transparent dark box */
+  backdrop-filter: blur(4px);       /* blur only behind content */
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);  /* outer glow */
+  max-width: 70%;                   /* keeps content centered */ 
+  margin: 0 auto;                   /* center the box */
 }
 
 /* Background Wrapper */
