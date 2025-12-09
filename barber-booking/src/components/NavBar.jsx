@@ -1,19 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./NavBar.css";
-
-const NavBar = () => {
+export default function NavBar() {
   return (
-    <nav className="navbar">
-      <div className="logo">Barber Booking</div>
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/barbers">Barbers</Link>
-        <Link to="/booking">Book</Link>
-      </div>
+    <nav style={{
+      backgroundColor: "rgba(0,0,0,0.6)",
+      padding: "10px 20px",
+      color: "white",
+      fontSize: "20px",
+      fontWeight: "bold"
+    }}>
+      Barber Booking
     </nav>
   );
-};
-
-export default NavBar;
+}
