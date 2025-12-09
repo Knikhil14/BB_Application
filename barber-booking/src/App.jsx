@@ -15,9 +15,9 @@ function App() {
     <BrowserRouter>
       <div className="app-bg">
         <div className="overlay"></div>   {/* blur layer */}
-
+                   
+        <NavBar />  {/* stays fixed at top, NOT inside centering box */}
         <div className="content-wrapper">
-          <NavBar />
 
           <div className="content">
             <Routes>

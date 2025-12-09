@@ -50,30 +50,39 @@ html, body {
 .content-wrapper {
   position: relative;
   z-index: 1;
+
   width: 100%;
-  max-width: 900px;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;   /* centers vertically */
+  align-items: center;       /* centers horizontally */
 }
 
 /* Centered content box */
 .content {
+  max-width: 900px;
   width: 100%;
-  max-width: 700px;
-  text-align: center;
 
   padding: 40px 20px;
-  border-radius: 15px;
+  text-align: center;
 
   background: rgba(0, 0, 0, 0.35);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-
-  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+
+nav {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
