@@ -48,13 +48,15 @@
 }
 
 .app-bg {
-  background-image: url('/barber-bg.jpg'); 
-  background-size: cover;
-  background-position: center;
+  background-image: url('/barber-bg.jpg');
+  background-size: cover;          /* ensures full coverage */
+  background-position: top center; /* prevents cropping */
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh;                   /* full screen */
   width: 100%;
+  overflow: hidden;                /* prevents scroll issue */
 }
+
 
 .content {
   padding-top: 80px; /* space for navbar */
