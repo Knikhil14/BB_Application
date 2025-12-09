@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.booking-container h2 {
+  font-weight: bold;
+  font-size: 32px; /* adjust size as needed */
+}
+
