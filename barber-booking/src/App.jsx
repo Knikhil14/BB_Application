@@ -37,3 +37,16 @@ function App() {
 }
 
 export default App;
+
+
+import HomePage from "./pages/HomePage";
+
+function App() {
+  return (
+    <div style={{ padding: "40px", color: "white" }}>
+      <HomePage />
+    </div>
+  );
+}
+
+export default App;
